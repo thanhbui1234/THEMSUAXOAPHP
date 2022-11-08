@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-  </head>
+<?php 
+include './components/header.php';
+?>
   <body>
   <div class="container">
      <table class="table table-striped">
@@ -21,10 +10,11 @@
       <th scope="col">MA SINH VIEN</th>
       <th scope="col">TEN</th>
       <th scope="col">LOP</th>
+      <th scope="col">THAO TAC</th>
+
     </tr>
   </thead>
   <tbody>
- 
 
     <?php 
     require_once 'connect.php';
@@ -38,10 +28,17 @@
       <td><?php echo $arr['maSV']; ?></td>
       <td><?php echo $arr['hoTen']; ?></td>
       <td><?php echo $arr['lop']; ?></td>
+     <td>
+      <a href="edit.php?id= <?php echo $arr['ID'];?>" ><button type="button" class="btn btn-outline-success">Sua</button>
+</a>
+      <a onclick="return confirm('Do you want to delete this studen?')" href="delete.php?id=<?php echo $arr['ID']; ?>"><button type="button" class="btn btn-outline-danger">Xoa</button>
+</a>
+     </td>
+
     </tr>
     <?php
      }
-echo '<a href="index.html">Ve trang chu</a>';
+echo '<a href="index.php">Ve trang chu</a>';
 
     ?>
      </tbody>

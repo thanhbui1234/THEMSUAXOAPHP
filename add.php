@@ -16,5 +16,4 @@ echo "<h1>connect successfully</h1>";
  header('Location: ./dasbord.php');
  }
 
-
 ?>
